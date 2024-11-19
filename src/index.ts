@@ -11,6 +11,12 @@ const envFile = process.env.NODE_ENV === 'production' ? '.env.prod' : '.env';
 config({ path: envFile });
 
 const app = express();
+
+app.use((req: Request, res: Response, next: NextFunction) => {
+    res.locals.fecha = new Date().getFullYear(); // Pasamos el año actual
+    next();
+});
+
 const PORT = process.env.PORT;
 
 db.authenticate()
@@ -43,6 +49,7 @@ app.get("/login", index);
         res.render("index", { base_url: process.env.BASE_URL }); // Si no está logueado, renderizar el login
     }
 }); */
+
 
 
 // Iniciar el servidor
