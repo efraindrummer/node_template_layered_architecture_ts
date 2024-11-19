@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+</head>
+<body class="flex">
+  <!-- Sidebar para pantallas grandes -->
+  <%- include('../partials/sidebar') %>
+
+  <!-- Contenido principal -->
+
+  <br>
+  <main class="flex-grow p-6 bg-gray-100 ">
+    <h1 class="text-2xl font-bold">Bienvenido a la Capacitación</h1>
+    <p class="mt-4">Base URL: <%= base_url %></p>
+
+    <div class="container mx-auto mt-6">
+      <div class="bg-white rounded-lg shadow-lg p-8">
+        <div class="mb-4">
+          <a href="/training/nueva_dnf" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
+            Nueva DNF
+          </a>
+        </div>
+
+        <!-- Tabla con DataTable dentro de un box -->
+        <div class="overflow-x-auto bg-white ">
+          <table id="capacitationTable" class="min-w-full table-auto text-sm">
+            <thead>
+              <tr class="bg-gray-900 text-white">
+                <th class="py-3 px-6 text-left">Nombre de la Capacitación</th>
+                <th class="py-3 px-6 text-left">Instructor</th>
+                <th class="py-3 px-6 text-left">Fecha de Realización</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+              </tr>
+              <tr class="bg-white border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Marketing Digital</td>
+                <td class="py-3 px-6">Ana López</td>
+                <td class="py-3 px-6">15 de diciembre de 2024</td>
+              </tr>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Gestión de Proyectos</td>
+                <td class="py-3 px-6">Carlos García</td>
+                <td class="py-3 px-6">20 de diciembre de 2024</td>
+              </tr>
+              <tr class="bg-white border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Seguridad Informática</td>
+                <td class="py-3 px-6">Marta Sánchez</td>
+                <td class="py-3 px-6">25 de diciembre de 2024</td>
+              </tr>
+              <tr class="bg-white border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Seguridad Informática</td>
+                <td class="py-3 px-6">Marta Sánchez</td>
+                <td class="py-3 px-6">25 de diciembre de 2024</td>
+              </tr>
+              <tr class="bg-white border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Seguridad Informática</td>
+                <td class="py-3 px-6">Marta Sánchez</td>
+                <td class="py-3 px-6">25 de diciembre de 2024</td>
+              </tr>
+              <tr class="bg-white border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Seguridad Informática</td>
+                <td class="py-3 px-6">Marta Sánchez</td>
+                <td class="py-3 px-6">25 de diciembre de 2024</td>
+              </tr>
+              <tr class="bg-white border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Seguridad Informática</td>
+                <td class="py-3 px-6">Marta Sánchez</td>
+                <td class="py-3 px-6">25 de diciembre de 2024</td>
+              </tr>
+              <tr class="bg-white border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Seguridad Informática</td>
+                <td class="py-3 px-6">Marta Sánchez</td>
+                <td class="py-3 px-6">25 de diciembre de 2024</td>
+              </tr>
+              <tr class="bg-white border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Seguridad Informática</td>
+                <td class="py-3 px-6">Marta Sánchez</td>
+                <td class="py-3 px-6">25 de diciembre de 2024</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Elemento oculto para almacenar base_url -->
+  <div id="base_url" base_url="<%= base_url %>"></div>
+
+  <!-- Incluir el script del sidebar-toggle -->
+  <script src="/js/sidebar-toggle.js" defer></script>
+  <script>
+    $(document).ready(function() {
+      $('#capacitationTable').DataTable({
+        "language": {
+          "sEmptyTable": "No hay datos disponibles en la tabla",
+          "sInfo": "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+          "sInfoEmpty": "Mostrando 0 a 0 de 0 entradas",
+          "sInfoFiltered": "(filtrado de _MAX_ entradas en total)",
+          "sInfoPostFix": "",
+          "sSearch": "Buscar:",
+          "sUrl": "",
+          "sLengthMenu": "Mostrar _MENU_ entradas",
+          "oPaginate": {
+            "sFirst": "Primero",
+            "sPrevious": "Anterior",
+            "sNext": "Siguiente",
+            "sLast": "Último"
+          }
+        },
+        "lengthMenu": [5, 10, 15, 20],
+        "pageLength": 5
+      });
+    });
+  </script>
+
+</body>
+</html>

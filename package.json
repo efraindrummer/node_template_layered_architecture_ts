@@ -17,6 +17,9 @@
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.1",
+    "moment": "^2.30.1",
     "mysql2": "^3.11.4",
     "postcss": "^8.4.49",
     "sequelize": "^6.37.5",
@@ -24,6 +27,8 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
+    "@types/express-ejs-layouts": "^2.5.4",
+    "@types/express-session": "^1.18.0",
     "@types/node": "^22.9.0",
     "@types/sequelize": "^4.28.20",
     "nodemon": "^3.1.7",

@@ -1,10 +1,11 @@
 // src/index.ts
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import { User } from "../src/models/user.js"
 import db from "../src/config/database.js";
 import { config } from "dotenv";
+import { index } from "./controllers/index/index_controller.js";
+import router_training from "./routes/web/training_routes.js";
 
 const envFile = process.env.NODE_ENV === 'production' ? '.env.prod' : '.env';
 config({ path: envFile });
@@ -23,33 +24,26 @@ app.use(express.json({ limit: '50mb' }));
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'src/public')));
+
 // Configurar EJS
 app.set("view engine", "ejs");
-app.set("views", path.resolve(__dirname, "views")) ;
+app.set("views", path.resolve(__dirname, "views"));
 
+/* ROUTES */
+
+app.use('/training', router_training)
+
+app.get("/login", index);
 // Ruta principal
-app.get("/", async(req: Request, res: Response) => {
-    console.log('desde el index primer controler...')
-    try {
-        const user = await User.findAll();
-        const fecha = new Date()
-        const logo_url: string = process.env.BASE_URL + "images/dragados_logo.png"
-
-        const data = {
-            user,
-            base_url: process.env.BASE_URL,
-            logo_url,
-            fecha
-        };
-
-
-        res.render("index", data);
-    } catch (error) {
-        console.log("Error en la consulta de usuarios:", error);
-        res.status(500).send("Error en la consulta de usuarios");
+/* app.get("/login", (req: Request, res: Response, next: NextFunction) => {
+    if (req.session.loged) {
+        res.redirect("/"); // Si el usuario está logueado, redirigir a la página principal
+    } else {
+        res.render("index", { base_url: process.env.BASE_URL }); // Si no está logueado, renderizar el login
     }
-});
+}); */
+
 
 // Iniciar el servidor
 app.listen(PORT, () => {
