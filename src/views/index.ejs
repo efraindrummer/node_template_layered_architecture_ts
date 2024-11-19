@@ -87,6 +87,7 @@
                 <th class="py-3 px-6 text-left font-semibold text-sm">Nombre</th>
                 <th class="py-3 px-6 text-left font-semibold text-sm">Contraseña</th>
                 <th class="py-3 px-6 text-left font-semibold text-sm">Correo Electrónico</th>
+                <th class="py-3 px-6 text-left font-semibold text-sm">Estatus</th>
               </tr>
             </thead>
             <tbody>
@@ -99,6 +100,7 @@
                   <td class="py-3 px-6 border-t border-b text-sm text-gray-700"><%= item.user_names %> <%= item.user_lastname_p %> <%= item.user_lastname_m %></td>
                   <td class="py-3 px-6 border-t border-b text-sm text-gray-700"><%= item.user_password %></td>
                   <td class="py-3 px-6 border-t border-b text-sm text-gray-700"><%= item.user_email %></td>
+                  <td class="py-3 px-6 border-t border-b text-sm text-gray-700"><%= item.user_status %></td>
                 </tr>
               <% }) %>
             </tbody>

@@ -43,7 +43,6 @@ app.get("/", async(req: Request, res: Response) => {
             fecha
         };
 
-        console.log(data)
 
         res.render("index", data);
     } catch (error) {
