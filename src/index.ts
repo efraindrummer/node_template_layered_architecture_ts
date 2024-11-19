@@ -43,6 +43,8 @@ app.get("/", async(req: Request, res: Response) => {
             fecha
         };
 
+        console.log(data)
+
         res.render("index", data);
     } catch (error) {
         console.log("Error en la consulta de usuarios:", error);

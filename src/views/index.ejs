@@ -1,3 +1,12 @@
+<%
+// @ts-check
+/** @typedef {import('./path/to/types/ejs.d.ts').EJS.Locals} Locals */
+/** @type {Locals} */
+%>
+
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -82,7 +91,10 @@
             </thead>
             <tbody>
               <!-- Aquí se puede renderizar dinámicamente con tu backend -->
-              <% user.forEach((item, index) => { %>
+              <% 
+              const { user, fecha, base_url } = locals;
+              
+              user.forEach((item) => { %>
                 <tr class="hover:bg-gray-50 transition-colors duration-200">
                   <td class="py-3 px-6 border-t border-b text-sm text-gray-700"><%= item.user_names %> <%= item.user_lastname_p %> <%= item.user_lastname_m %></td>
                   <td class="py-3 px-6 border-t border-b text-sm text-gray-700"><%= item.user_password %></td>
@@ -92,6 +104,10 @@
             </tbody>
           </table>
         </div>
+
+        <pre>
+              <%= JSON.stringify(user) %>
+              <pre/>
       </div>
       
     </div>
