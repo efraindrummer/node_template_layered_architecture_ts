@@ -30,7 +30,7 @@ app.use(express.json({ limit: '50mb' }));
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.use(express.static(path.join(__dirname, 'src/public')));
+app.use(express.static("src/public"));
 
 // Configurar EJS
 app.set("view engine", "ejs");

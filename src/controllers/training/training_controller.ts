@@ -73,4 +73,38 @@ export class trainingController {
             res.status(500).json({ message: 'Hubo un error'});
         }
     }
+
+    static show_trainings_dnf = async(req: Request, res: Response) => {
+        console.log('show_trainings_dnf...')
+
+        try {
+
+            const data = {
+                base_url: process.env.BASE_URL,
+                title: 'Capacitacion DNF',
+            }
+
+            res.render('training/ver_dnfs', data)
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({ message: 'Hubo un error'});
+        }
+    }
+    
+    static show_trainings_planned = async(req: Request, res: Response) => {
+        console.log('show_trainings_planned...')
+
+        try {
+
+            const data = {
+                base_url: process.env.BASE_URL,
+                title: 'Capacitacion DNF',
+            }
+
+            res.render('training/plan_capacitacion', data)
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({ message: 'Hubo un error'});
+        }
+    }
 }

@@ -7,7 +7,8 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "nodemon --watch src --exec \"node --loader ts-node/esm\" src/index.ts",
-    "build:css": "postcss src/styles/tailwind.css -o public/styles/tailwind.css"
+    "build:css": "npx tailwindcss -i ./src/public/css/styles.css -o ./src/public/css/output.css --watch",
+    "dev:all": "concurrently \"npm run build:css\" \"npm run dev\""
   },
   "author": "efraindrummer",
   "license": "ISC",
@@ -31,6 +32,7 @@
     "@types/express-session": "^1.18.0",
     "@types/node": "^22.9.0",
     "@types/sequelize": "^4.28.20",
+    "concurrently": "^9.1.0",
     "nodemon": "^3.1.7",
     "postcss-cli": "^11.0.0",
     "ts-node": "^10.9.2",

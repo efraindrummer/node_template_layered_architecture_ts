@@ -4,118 +4,121 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Panel de Inicio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="/css/sidebar.css" rel="stylesheet">
+  <link href="/css/output.css" rel="stylesheet">
+  <link href="/css/animated.css" rel="stylesheet">
+  
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   
 </head>
-<body class="bg-gray-100">
-    <div class="flex">
-        <%- include('../partials/sidebar') %>
+<body class="bg-gray-100 h-screen flex">
+  
 
-        <main class="flex-grow p-6">
-          <div class="container mx-auto">
-            <h1 class="text-2xl font-bold text-blue-600 mb-6">Panel de Inicio</h1>
-      
-            <!-- Tarjetas -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <!-- Tarjeta 1 -->
-              <a href="/training/capacitaciones" class="block p-6 bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-blue-50 transition">
-                <div class="flex items-center">
-                  <div class="w-12 h-12 bg-blue-500 text-white flex items-center justify-center rounded-full">
-                    <i class="fas fa-users fa-lg"></i>
-                  </div>
-                  <div class="ml-4">
-                    <h3 class="text-xl font-bold text-gray-800">Gestión de Capacitaciones</h3>
-                    <p class="text-sm text-gray-600">Administra las capacitaciones</p>
-                  </div>
-                </div>
-              </a>
-      
-              <!-- Tarjeta 2 -->
-              <a href="/training/nueva_dnf" class="block p-6 bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-green-50 transition">
-                <div class="flex items-center">
-                  <div class="w-12 h-12 bg-green-500 text-white flex items-center justify-center rounded-full">
-                    <i class="fas fa-chart-line fa-lg"></i>
-                  </div>
-                  <div class="ml-4">
-                    <h3 class="text-xl font-bold text-gray-800">DNF</h3>
-                    <p class="text-sm text-gray-600">Consulta estadísticas y datos</p>
-                  </div>
-                </div>
-              </a>
-      
-              <!-- Tarjeta 3 -->
-              <a href="#" class="block p-6 bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-yellow-50 transition">
-                <div class="flex items-center">
-                  <div class="w-12 h-12 bg-yellow-500 text-white flex items-center justify-center rounded-full">
-                      <i class="fa-solid fa-list"></i>
-                  </div>
-                  <div class="ml-4">
-                    <h3 class="text-xl font-bold text-gray-800">Catalogos</h3>
-                    <p class="text-sm text-gray-600">Catalogos del Modulo</p>
-                  </div>
-                </div>
-              </a>
-      
-              <a href="/training/capacitaciones" class="block p-6 bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-blue-50 transition">
-                <div class="flex items-center">
-                  <div class="w-12 h-12 bg-red-500 text-white flex items-center justify-center rounded-full">
-                      <i class="fa-solid fa-file-lines"></i>
-                  </div>
-                  <div class="ml-4">
-                    <h3 class="text-xl font-bold text-gray-800">Evaluaciones</h3>
-                    <p class="text-sm text-gray-600">Administra las evaluaciones</p>
-                  </div>
-                </div>
-              </a>
-      
-              <!-- Tarjeta 2 -->
-              <a href="/training/capacitaciones" class="block p-6 bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-green-50 transition">
-                <div class="flex items-center">
-                  <div class="w-12 h-12 bg-slate-500 text-white flex items-center justify-center rounded-full">
-                      <i class="fa-solid fa-people-arrows"></i>
-                  </div>
-                  <div class="ml-4">
-                    <h3 class="text-xl font-bold text-gray-800">Plan de Capacitacion</h3>
-                    <p class="text-sm text-gray-600">Consulta el plan de Capacitacion</p>
-                  </div>
-                </div>
-              </a>
-      
-              <!-- Tarjeta 3 -->
-              <a href="#" class="block p-6 bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-yellow-50 transition">
-                <div class="flex items-center">
-                  <div class="w-12 h-12 bg-lime-500 text-white flex items-center justify-center rounded-full">
-                      <i class="fa-regular fa-folder-open"></i>
-                  </div>
-                  <div class="ml-4">
-                    <h3 class="text-xl font-bold text-gray-800">Constancias</h3>
-                    <p class="text-sm text-gray-600">Consultar constancias</p>
-                  </div>
-                </div>
-              </a>
-              <a href="#" class="block p-6 bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-yellow-50 transition">
-                <div class="flex items-center">
-                  <div class="w-12 h-12 bg-indigo-700 text-white flex items-center justify-center rounded-full">
-                      <i class="fa-solid fa-signal"></i>
-                  </div>
-                  <div class="ml-4">
-                    <h3 class="text-xl font-bold text-gray-800">Informes</h3>
-                    <p class="text-sm text-gray-600">Consulta Informes</p>
-                  </div>
-                </div>
-              </a>
+  <div class="h-full px-3 py-4 overflow-y-auto">
+    <!-- Tu contenido aquí -->
+    <%- include('../partials/sidebar') %>
+  </div>
+
+
+  <main class="flex-grow h-screen transition-all m-8 py-4">
+    <div class="container mx-auto">
+      <h1 class="text-2xl mt-4 font-bold text-blue-600 animate__animated animate__bounceInLeft">Panel de Inicio</h1>
+
+      <!-- Tarjetas -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <!-- Tarjeta 1 -->
+        <a href="/training/capacitaciones" class="block p-6 bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-blue-50 transition animate__animated animate__bounceInUp">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-blue-500 text-white flex items-center justify-center rounded-full">
+              <i class="fas fa-users fa-lg"></i>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-xl font-bold text-gray-800">Gestión de Capacitaciones</h3>
+              <p class="text-sm text-gray-600">Administra las capacitaciones</p>
             </div>
           </div>
-          <br><br><br>
-        </main>
+        </a>
+
+        <!-- Tarjeta 2 -->
+        <a href="/training/capacitaciones/ver_dnfs" class="block p-6 bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-green-50 transition animate__animated animate__bounceInUp">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-green-500 text-white flex items-center justify-center rounded-full">
+              <i class="fas fa-chart-line fa-lg"></i>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-xl font-bold text-gray-800">DNF</h3>
+              <p class="text-sm text-gray-600">Consulta estadísticas y datos</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Tarjeta 3 -->
+        <a href="#" class="block p-6 bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-yellow-50 transition animate__animated animate__bounceInUp">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-yellow-500 text-white flex items-center justify-center rounded-full">
+                <i class="fa-solid fa-list"></i>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-xl font-bold text-gray-800">Catalogos</h3>
+              <p class="text-sm text-gray-600">Catalogos del Modulo</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/training/capacitaciones" class="block p-6 bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-blue-50 transition animate__animated animate__bounceInUp">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-red-500 text-white flex items-center justify-center rounded-full">
+                <i class="fa-solid fa-file-lines"></i>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-xl font-bold text-gray-800">Evaluaciones</h3>
+              <p class="text-sm text-gray-600">Administra las evaluaciones</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Tarjeta 2 -->
+        <a href="/training/capacitaciones/plan_capacitacion" class="block p-6 bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-green-50 transition animate__animated animate__bounceInUp">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-slate-500 text-white flex items-center justify-center rounded-full">
+                <i class="fa-solid fa-people-arrows"></i>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-xl font-bold text-gray-800">Plan de Capacitacion</h3>
+              <p class="text-sm text-gray-600">Consulta el plan de Capacitacion</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- Tarjeta 3 -->
+        <a href="#" class="block p-6 bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-yellow-50 transition animate__animated animate__bounceInUp">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-lime-500 text-white flex items-center justify-center rounded-full">
+                <i class="fa-regular fa-folder-open"></i>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-xl font-bold text-gray-800">Constancias</h3>
+              <p class="text-sm text-gray-600">Consultar constancias</p>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="block p-6 bg-white rounded-lg shadow-lg hover:shadow-xl hover:bg-yellow-50 transition animate__animated animate__bounceInUp">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-indigo-700 text-white flex items-center justify-center rounded-full">
+                <i class="fa-solid fa-signal"></i>
+            </div>
+            <div class="ml-4">
+              <h3 class="text-xl font-bold text-gray-800">Informes</h3>
+              <p class="text-sm text-gray-600">Consulta Informes</p>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
+  </main>
 
 
-    <br><br><br><br><br><br><br>
-    <footer class="bg-gray-800 text-white py-4">
-    <%- include('../partials/footer') %>
-    </footer>
+
 
 </body>
 </html>

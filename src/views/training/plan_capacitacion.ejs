@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Capacitación con Calendario</title>
+    <link href="/css/sidebar.css" rel="stylesheet">
+    <link href="/css/output.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/locales/es.js"></script>
+
+
+
+
+    <style>
+      #calendar {
+        height: calc(100vh - 160px); /* Resta espacio para márgenes, encabezados, etc. */
+      }
+
+      .fc {
+        font-family: 'Arial', sans-serif;
+        background-color: #f9fafb; /* Fondo claro */
+        border-radius: 8px; /* Bordes redondeados */
+        padding: 16px;
+      }
+
+      .fc-toolbar {
+        margin-bottom: 16px;
+      }
+
+      .fc .fc-button {
+        background-color: #2563eb; /* Botón azul */
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 6px 12px;
+      }
+
+      .fc .fc-button:hover {
+        background-color: #1d4ed8; /* Botón azul oscuro */
+      }
+
+
+    </style>
+
+</head>
+<body class="bg-gray-100 h-screen flex">
+
+    <div class="h-full overflow-y-auto">
+      <%- include('../partials/sidebar') %>
+    </div>
+    <!-- Contenedor Principal -->
+    
+    <main class="flex-grow flex flex-col p-4 space-y-4 m-12">
+      <header class="bg-slate-900 rounded-2xl text-white p-4">
+        <h1 class="text-xl font-bold">Plan de Capacitación</h1>
+        <p class="text-sm">Gestiona tus capacitaciones de manera eficiente</p>
+      </header>
+
+      <div class="flex justify-end">
+        <button id="downloadPdf" class="bg-slate-900 text-white px-4 py-2 rounded hover:bg-blue-700">
+          Exportar a PDF
+        </button>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <div id="calendar" class=" m-6flex-grow rounded-lg shadow-md bg-white overflow-hidden"></div>
+      </div>
+    </main>
+      
+  
+    <!-- Modal -->
+    <!-- <div id="eventModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+      <div class="bg-white rounded-lg shadow-lg w-96 p-6">
+        <h2 id="modalTitle" class="text-xl font-bold text-gray-800 mb-4">Detalles del Curso</h2>
+        <form id="eventForm">
+          <div class="mb-4">
+            <label for="editTitle" class="block text-sm font-medium text-gray-700">Título:</label>
+            <input type="text" id="editTitle" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+          </div>
+          <div class="mb-4">
+            <label for="editDescription" class="block text-sm font-medium text-gray-700">Descripción:</label>
+            <textarea id="editDescription" rows="3" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm"></textarea>
+          </div>
+          <div class="mb-4">
+            <label for="editDate" class="block text-sm font-medium text-gray-700">Fecha:</label>
+            <input type="date" id="editDate" class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
+          </div>
+          <div class="flex justify-end space-x-4">
+            <button type="button" onclick="saveEvent()" class="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700">
+              Guardar
+            </button>
+            <button type="button" onclick="closeModal()" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg shadow hover:bg-gray-400">
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div> -->
+  
+    <!-- Script para inicializar FullCalendar -->
+    <script>
+      let selectedEvent = null; // Para almacenar el evento seleccionado
+      const eventsData = [
+        // Eventos iniciales
+        { title: 'Curso de Finanzas', start: '2024-11-10', description: 'Curso básico de finanzas' },
+        { title: 'Introducción a Python', start: '2024-11-15', description: 'Curso inicial de programación en Python' },
+        { title: 'Habilidades Comunicativas', start: '2024-11-12', description: 'Taller sobre comunicación efectiva' },
+        { title: 'Habilidades Comunicativas', start: '2024-11-15', description: 'Taller sobre comunicación efectiva' },
+        { title: 'Habilidades Comunicativas', start: '2024-11-21', description: 'Taller sobre comunicación efectiva' },
+        { title: 'Habilidades Comunicativas', start: '2024-11-22', description: 'Taller sobre comunicación efectiva' },
+        { title: 'Habilidades Comunicativas', start: '2024-11-23', description: 'Taller sobre comunicación efectiva' },
+        { title: 'Habilidades Comunicativas', start: '2024-11-24', description: 'Taller sobre comunicación efectiva' },
+        { title: 'Cierre Anual', start: '2024-12-10', description: 'Planificación estratégica para el cierre anual' },
+        { title: 'Cierre Anual', start: '2024-12-11', description: 'Planificación estratégica para el cierre anual' },
+        { title: 'Cierre Anual', start: '2024-12-12', description: 'Planificación estratégica para el cierre anual' },
+        { title: 'Cierre Anual', start: '2024-12-13', description: 'Planificación estratégica para el cierre anual' },
+        { title: 'Trabajo en Equipo', start: '2024-12-15', description: 'Curso sobre dinámicas de grupo y trabajo colaborativo' },
+        { title: 'Metas 2025', start: '2024-12-20', description: 'Sesión de planificación de objetivos para el próximo año' }
+      ];
+  
+      document.addEventListener('DOMContentLoaded', function() {
+        const calendarEl = document.getElementById('calendar');
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+          locale: 'es',
+          initialView: 'dayGridMonth',
+          headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+          },
+          events: eventsData,
+          eventClick: function(info) {
+            // Guardar el evento seleccionado
+            selectedEvent = info.event;
+  
+            // Mostrar detalles del evento en el modal
+            document.getElementById('editTitle').value = selectedEvent.title;
+            document.getElementById('editDescription').value = selectedEvent.extendedProps.description;
+            document.getElementById('editDate').value = selectedEvent.startStr;
+  
+            document.getElementById('eventModal').classList.remove('hidden');
+          }
+        });
+        calendar.render();
+      });
+  
+      // Función para cerrar el modal
+      function closeModal() {
+        document.getElementById('eventModal').classList.add('hidden');
+      }
+  
+      // Función para guardar los cambios en el evento
+      function saveEvent() {
+        if (selectedEvent) {
+          // Actualizar los datos del evento
+          selectedEvent.setProp('title', document.getElementById('editTitle').value);
+          selectedEvent.setExtendedProp('description', document.getElementById('editDescription').value);
+          selectedEvent.setStart(document.getElementById('editDate').value);
+  
+          // Cerrar el modal
+          closeModal();
+        }
+      }
+
+      document.getElementById('downloadPdf').addEventListener('click', function () {
+      const { jsPDF } = window.jspdf;
+
+      // Capturar el contenido del calendario como imagen
+      html2canvas(document.getElementById('calendar')).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('landscape', 'mm', 'a4');
+
+        // Ajustar la imagen al tamaño de la página
+        const imgWidth = 297; // A4 landscape width en mm
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+        pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+        pdf.save('calendario.pdf');
+      });
+    });
+
+    </script>
+  </body>
+</html>
