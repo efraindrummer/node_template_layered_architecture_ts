@@ -46,7 +46,7 @@ app.get("/login", index);
     if (req.session.loged) {
         res.redirect("/"); // Si el usuario está logueado, redirigir a la página principal
     } else {
-        res.render("index", { base_url: process.env.BASE_URL }); // Si no está logueado, renderizar el login
+        res.render("login", { base_url: process.env.BASE_URL }); // Si no está logueado, renderizar el login
     }
 }); */
 
@@ -54,5 +54,5 @@ app.get("/login", index);
 
 // Iniciar el servidor
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+    console.log(`Servidor corriendo en http://localhost:${PORT}/login`);
 });
