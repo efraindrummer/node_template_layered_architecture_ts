@@ -1,0 +1,33 @@
+{
+    "apps": [
+      {
+        "name": "nuup-app",
+        "script": "./dist/index.js",
+        "watch": false,
+        "instances": 1,
+        "autorestart": true,
+        "max_memory_restart": "500M",
+        "env": {
+          "NODE_ENV": "production",
+          "DB_NAME": "nuup",
+          "DB_USER": "root",
+          "DB_PASSWORD": "",
+          "DB_HOST": "localhost",
+          "DB_PORT": "",
+          "PORT": "3000",
+          "BASE_URL": "http://localhost:3000/"
+        },
+        "env_development": {
+          "NODE_ENV": "development",
+          "DB_NAME": "nuup",
+          "DB_USER": "root",
+          "DB_PASSWORD": "",
+          "DB_HOST": "localhost",
+          "DB_PORT": "",
+          "PORT": "3000",
+          "BASE_URL": "http://localhost:3000/"
+        }
+      }
+    ]
+  }
+  
