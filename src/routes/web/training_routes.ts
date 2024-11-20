@@ -4,8 +4,9 @@ import { trainingController } from "../../controllers/training/training_controll
 const router_training = express.Router();
 
 router_training.get('/panel', trainingController.panel_module)
-router_training.get('/capacitaciones', trainingController.showTraining)
 router_training.get('/nueva_dnf', trainingController.new_dnf)
+router_training.get('/capacitaciones', trainingController.showTraining)
+router_training.get('/capacitaciones/ver_capacitacion', trainingController.show_training)
 
 
 export default router_training;

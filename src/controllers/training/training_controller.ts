@@ -57,4 +57,20 @@ export class trainingController {
             res.status(500).json({ message: 'Hubo un error'});
         }
     }
+
+    static show_training = async(req: Request, res: Response) => {
+        console.log('show_training....')
+
+        try {
+            const data = {
+                base_url: process.env.BASE_URL,
+                title: 'Nueva DNF',
+            }
+
+            res.render('training/ver_solicitud', data)
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({ message: 'Hubo un error'});
+        }
+    }
 }
