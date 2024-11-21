@@ -1,4 +1,7 @@
+
 import { CAP_CURSO } from '../../models/cap_curso.js';
+import db from '../../config/database.js';
+import sequelize from 'sequelize';
 
 
 export class trainingService { 
@@ -16,6 +19,20 @@ export class trainingService {
         try {
             const course_status_c = await CAP_CURSO.findAll({ where: { STATUS: 'C' }})
             return course_status_c;
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    static async callStore_SP_VERIFICA_PROYECTO_CONTRATO (){
+        console.log('callStore_SP_VERIFICA_PROYECTO_CONTRATO.....')
+        try {
+            const result = await db.query('EXEC SP_VERIFICA_PROYECTO_CONTRATO :param1', {
+                replacements: { param1: '706223' },
+                type: sequelize.QueryTypes.RAW,
+            });
+
+            return result;
         } catch (error) {
             console.log(error)
         }

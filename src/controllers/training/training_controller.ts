@@ -30,6 +30,10 @@ export class trainingController {
             const cap_curso = await trainingService.getAllCursos()
             const course_status_cancelado = await trainingService.getAllCourseStatusC()
 
+            const procedure = await trainingService.callStore_SP_VERIFICA_PROYECTO_CONTRATO()
+
+            console.log(JSON.stringify(procedure))
+
             /* console.log(JSON.stringify(cap_curso)) */
             
             const data = {
@@ -39,7 +43,7 @@ export class trainingController {
                 course_status_cancelado
             }
 
-            console.log(JSON.stringify(data))
+           
 
             res.render('training/show_training', data)
         } catch (error) {
