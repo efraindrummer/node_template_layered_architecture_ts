@@ -107,4 +107,21 @@ export class trainingController {
             res.status(500).json({ message: 'Hubo un error'});
         }
     }
+    
+    static dashboard_training = async(req: Request, res: Response) => {
+        console.log('dashboard_training...')
+
+        try {
+
+            const data = {
+                base_url: process.env.BASE_URL,
+                title: 'Capacitacion DNF',
+            }
+
+            res.render('training/dashboard_training', data)
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({ message: 'Hubo un error'});
+        }
+    }
 }

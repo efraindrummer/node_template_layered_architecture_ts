@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOMSA - MENU</title>
+    <link href="/css/sidebar.css" rel="stylesheet">
+    <link href="/css/output.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .active {
+            background-color: #e5e7eb; /* bg-gray-300 */
+            font-weight: bold;
+        }
+        @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+        .fade-in {
+        animation: fadeIn 0.5s ease-in-out;
+        }
+
+
+    </style>
+</head>
+<body class="bg-gray-100 h-screen flex flex-col">
+    <header class="bg-blue-950 text-white p-4 flex justify-between items-center shadow-lg">
+        <!-- Logo e Información -->
+        <div class="flex items-center space-x-4">
+          <img src="https://shallowanddeepwaterexpo.com/wp-content/uploads/2021/08/PARTICIPANT_Dragados_Offshore_logo.png" alt="Dragados Offshore" class="h-12">
+          <div>
+            <h1 class="text-2xl font-bold tracking-wide">Dragados Offshore México</h1>
+            <p class="text-sm text-gray-300 italic">Building Excellence Worldwide</p>
+          </div>
+        </div>
+      
+        <!-- Banderas -->
+        <div class="flex items-center space-x-4">
+          <img src="https://m.media-amazon.com/images/I/518DjdYex4L.jpg" alt="Banderas" class="h-10 rounded shadow-md">
+          <div>
+            <select class="bg-blue-800 text-white text-sm font-medium p-2 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-white">
+              <option>Español</option>
+              <option>Inglés</option>
+            </select>
+          </div>
+        </div>
+      </header>
+      
+      <div class="flex flex-1 overflow-hidden">
+        <!-- Barra Lateral -->
+        <aside class="bg-gray-200 w-1/5 p-4 flex flex-col space-y-4 overflow-auto">
+            <h2 class="font-bold text-lg">Grupo: <span class="text-blue-600">Admin</span></h2>
+            <ul class="space-y-2">
+                <li class="flex items-center space-x-3 p-2 rounded cursor-pointer hover:bg-gray-300 transition duration-300 ease-in-out hover:scale-105 border-l-4 border-transparent active:border-blue-600 active:bg-gray-200" data-section="planta">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Planta</span>
+                </li>
+                <li class="flex items-center space-x-3 p-2 rounded cursor-pointer hover:bg-gray-300 transition duration-300 ease-in-out hover:scale-105 border-l-4 border-transparent active:border-blue-600 active:bg-gray-200" data-section="proyecto">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span>Proyecto</span>
+                </li>
+                <li class="flex items-center space-x-3 p-2 rounded cursor-pointer hover:bg-gray-300 transition duration-300 ease-in-out hover:scale-105 border-l-4 border-transparent active:border-blue-600 active:bg-gray-200" data-section="ssma">
+                    <i class="fa-solid fa-chart-column"></i>
+                    <span>SSMA</span>
+                </li>
+                <li class="flex items-center space-x-3 p-2 rounded cursor-pointer hover:bg-gray-300 transition duration-300 ease-in-out hover:scale-105 border-l-4 border-transparent active:border-blue-600 active:bg-gray-200" data-section="directorio">
+                    <i class="fa-solid fa-folder-tree"></i>
+                    <span>Directorio</span>
+                </li>
+                <li class="flex items-center space-x-3 p-2 rounded cursor-pointer hover:bg-gray-300 transition duration-300 ease-in-out hover:scale-105 border-l-4 border-transparent active:border-blue-600 active:bg-gray-200" data-section="ayuda">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Ayuda</span>
+                </li>
+                <li class="flex items-center space-x-3 p-2 rounded cursor-pointer hover:bg-gray-300 transition duration-300 ease-in-out hover:scale-105 border-l-4 border-transparent active:border-blue-600 active:bg-gray-200" data-section="utilerias">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <span>Utilerías</span>
+                </li>
+                <li class="flex items-center space-x-3 p-2 rounded cursor-pointer hover:bg-gray-300 transition duration-300 ease-in-out hover:scale-105 border-l-4 border-transparent active:border-blue-600 active:bg-gray-200" data-section="difusion">
+                    <i class="fa-solid fa-comments"></i>
+                    <span>Difusión</span>
+                </li>
+                <li class="flex items-center space-x-3 p-2 rounded cursor-pointer hover:bg-gray-300 transition duration-300 ease-in-out hover:scale-105 border-l-4 border-transparent active:border-blue-600 active:bg-gray-200" data-section="difusion">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <span>Administrador</span>
+                </li>
+            </ul>
+        </aside>
+    
+        <!-- Panel Central -->
+            <main class="flex-1 bg-white p-6 overflow-auto">
+                <header class="mb-6">
+                    <h2 class="text-2xl font-bold">Planta Tampico</h2>
+                </header>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="p-4 bg-gray-100 border rounded shadow">
+                        <a href="/training/panel">
+                            <h3 class="font-bold">Control de Costes</h3>
+                        </a>
+                    </div>
+                    <div class="p-4 bg-gray-100 border rounded shadow">
+                        <a href="/training/panel">
+                            <h3 class="font-bold">Gestión de Imputación/Vacaciones</h3>
+                        </a>
+                    </div>
+                    <div class="p-4 bg-gray-100 border rounded shadow">
+                        <h3 class="font-bold">Soldaduras</h3>
+                    </div>
+                    <div class="p-4 bg-gray-100 border rounded shadow">
+                        <a href="/training/panel">
+                            <h3 class="font-bold">Servicios Generales (SSGG)</h3>
+                        </a>
+                    </div>
+                    <div class="p-4 bg-gray-100 border rounded shadow">
+                        <h3 class="font-bold">Administración</h3>
+                    </div>
+                    <div class="p-4 bg-gray-100 border rounded shadow">
+                        <h3 class="font-bold">Almacén</h3>
+                    </div>
+                    <!-- Agregar más tarjetas aquí -->
+                </div>
+            </main>
+    
+            <aside class="w-1/4 bg-white p-6 border-l shadow-sm rounded-sm">
+                <!-- Foto de Perfil -->
+                <div class="text-center mb-6">
+                <div class="relative inline-block">
+                    <img
+                    src="https://cdn-icons-png.flaticon.com/512/7084/7084424.png"
+                    alt="Usuario"
+                    class="rounded-full h-24 w-24 mx-auto border-4 border-blue-500 shadow-md"
+                    />
+                    <span class="absolute bottom-0 right-0 h-6 w-6 bg-green-500 border-2 border-white rounded-full"></span>
+                </div>
+                <h3 class="text-lg font-bold mt-4 text-gray-700">May Mayo Efraín</h3>
+                <p class="text-sm text-gray-500">Grupo: <span class="font-semibold text-blue-600">Admin</span></p>
+                </div>
+            
+                <!-- Información Personal -->
+                <div class="bg-gray-100 p-4 rounded-lg shadow-sm text-gray-700 space-y-2">
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-briefcase text-blue-500"></i>
+                    <p><strong>Departamento:</strong> Tecnología de la Información</p>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-envelope text-blue-500"></i>
+                    <p><strong>Correo:</strong> <a href="mailto:efrain.may@dragadosoffshoremexi" class="text-blue-600 underline">efrain.may@dragadosoffshoremexi</a></p>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-map-marker-alt text-blue-500"></i>
+                    <p><strong>Localización:</strong> Carmen - Oficina</p>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-phone text-blue-500"></i>
+                    <p><strong>Extensión:</strong> 3082</p>
+                </div>
+                </div>
+            
+                <!-- Imagen Cuadrada -->
+                <div class="mt-6">
+                <img
+                    src="https://comaple.com/wp-content/uploads/2020/12/KACUA1-1.jpg"
+                    alt="Imagen Representativa"
+                    class="w-full h-48 object-cover rounded-sm shadow-md"
+                />
+                </div>
+            
+                <!-- Botón de Acción -->
+                <div class="mt-6 text-center">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg shadow-sm transition duration-300 ease-in-out">
+                    Editar Información
+                </button>
+                </div>
+            </aside>
+        </div>
+    
+      <!-- Pie de Página -->
+        <footer class="bg-gray-800 text-white text-sm p-4 text-center">
+            <p>Centro de Atención a Usuarios (CAU) | Ext. 3082</p>
+            <p>Version 1.0.0 | Tiempo de sesión: 00:15</p>
+        </footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+            const menuItems = document.querySelectorAll("aside ul li");
+            const mainContent = document.querySelector("main");
+        
+            // Contenidos dinámicos para cada sección
+            const contentMap = {
+                planta: `
+                <header class="mb-6">
+                    <h2 class="text-2xl font-bold">Planta Tampico</h2>
+                </header>
+                <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-gray-100 border rounded shadow">
+                            <a href="/training/panel">
+                                <h3 class="font-bold">Control de Costes</h3>
+                            </a>
+                        </div>
+                        <div class="p-4 bg-gray-100 border rounded shadow">
+                            <a href="/training/panel">
+                                <h3 class="font-bold">Gestión de Imputación/Vacaciones</h3>
+                            </a>
+                        </div>
+                        <div class="p-4 bg-gray-100 border rounded shadow">
+                            <h3 class="font-bold">Soldaduras</h3>
+                        </div>
+                        <div class="p-4 bg-gray-100 border rounded shadow">
+                            <a href="/training/panel">
+                                <h3 class="font-bold">Servicios Generales (SSGG)</h3>
+                            </a>
+                        </div>
+                        <div class="p-4 bg-gray-100 border rounded shadow">
+                            <h3 class="font-bold">Administración</h3>
+                        </div>
+                        <div class="p-4 bg-gray-100 border rounded shadow">
+                            <h3 class="font-bold">Almacén</h3>
+                        </div>
+                </div>
+                `,
+                proyecto: `
+                <header class="mb-6">
+                    <h2 class="text-2xl font-bold">Proyecto</h2>
+                </header>
+                <p>Información sobre los proyectos activos y su estado.</p>
+                `,
+                ssma: `
+                <header class="mb-6">
+                    <h2 class="text-2xl font-bold">SSMA</h2>
+                </header>
+                <p>Información sobre seguridad, salud y medio ambiente.</p>
+                `,
+                // Agrega más secciones según sea necesario
+            };
+        
+            // Manejar el evento de clic
+            menuItems.forEach((item) => {
+                item.addEventListener("click", () => {
+                const section = item.getAttribute("data-section");
+                    mainContent.innerHTML = contentMap[section] || "<p>En construccion....</p>";
+                    mainContent.classList.add("fade-in");
+                    setTimeout(() => {
+                        mainContent.classList.remove("fade-in");
+                    }, 2000);
+
+                });
+            });
+            });
+            
+            
+
+
+        </script>
+      
+      
+      
+</body>
+</html>

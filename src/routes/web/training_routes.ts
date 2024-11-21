@@ -9,6 +9,7 @@ router_training.get('/capacitaciones', trainingController.showTraining)
 router_training.get('/capacitaciones/ver_capacitacion', trainingController.show_training)
 router_training.get('/capacitaciones/ver_dnfs', trainingController.show_trainings_dnf)
 router_training.get('/capacitaciones/plan_capacitacion', trainingController.show_trainings_planned)
+router_training.get('/capacitaciones/dashboard', trainingController.dashboard_training)
 
 
 export default router_training;
