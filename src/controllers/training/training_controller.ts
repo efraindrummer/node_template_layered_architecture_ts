@@ -2,6 +2,7 @@ import {} from "dotenv";
 import { Request, Response } from 'express';
 
 import moment from "moment";
+import { trainingService } from "../../services/training/training_service.js";
 
 export class trainingController {
 
@@ -25,10 +26,17 @@ export class trainingController {
         console.log('showTraining...')
 
         try {
+
+            const cap_curso = await trainingService.getAllCursos()
+            const course_status_cancelado = await trainingService.getAllCourseStatusC()
+
+            /* console.log(JSON.stringify(cap_curso)) */
             
             const data = {
                 base_url: process.env.BASE_URL,
-                title: 'inicio'
+                title: 'inicio',
+                cap_curso,
+                course_status_cancelado
             }
 
             console.log(JSON.stringify(data))
