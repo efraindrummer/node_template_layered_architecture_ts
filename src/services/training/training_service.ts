@@ -27,11 +27,11 @@ export class trainingService {
         }
     }
 
-    static async callStore_SP_VERIFICA_PROYECTO_CONTRATO(): Promise<any[]> {
+    static async callStore_SP_VERIFICA_PROYECTO_CONTRATO(/* param1: string */): Promise<any[]> {
         console.log('callStore_SP_VERIFICA_PROYECTO_CONTRATO.....')
         try {
             const result = await db.query('EXEC SP_VERIFICA_PROYECTO_CONTRATO :param1', {
-                replacements: { param1: '706223' },
+                replacements: { /* param1 */ },
                 type: sequelize.QueryTypes.RAW,
             });
 
