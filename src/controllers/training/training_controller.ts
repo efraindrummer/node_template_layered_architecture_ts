@@ -26,16 +26,16 @@ export class trainingController {
     static showTraining = async(req: Request, res: Response) => {
         console.log('showTraining...')
 
-        const { params } = req.body;
+        /* const { params } = req.body; */
 
         try {
 
             const cap_curso: ICapCurso[] = await trainingService.getAllCursos()
             const course_status_cancelado = await trainingService.getAllCourseStatusC()
 
-            const procedure = await trainingService.callStore_SP_VERIFICA_PROYECTO_CONTRATO(params.param1)
+            const procedure = await trainingService.callStore_SP_VERIFICA_PROYECTO_CONTRATO(/* params.param1 */)
 
-            console.log(JSON.stringify(procedure))
+            /* console.log(JSON.stringify(procedure)) */
 
             /* console.log(JSON.stringify(cap_curso)) */
             
