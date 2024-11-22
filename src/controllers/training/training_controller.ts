@@ -3,6 +3,7 @@ import { Request, Response } from 'express';
 
 import moment from "moment";
 import { trainingService } from "../../services/training/training_service.js";
+import { ICapCurso } from "../../models/cap_curso.interface.js";
 
 export class trainingController {
 
@@ -27,7 +28,7 @@ export class trainingController {
 
         try {
 
-            const cap_curso = await trainingService.getAllCursos()
+            const cap_curso: ICapCurso[] = await trainingService.getAllCursos()
             const course_status_cancelado = await trainingService.getAllCourseStatusC()
 
             const procedure = await trainingService.callStore_SP_VERIFICA_PROYECTO_CONTRATO()
@@ -43,12 +44,13 @@ export class trainingController {
                 course_status_cancelado
             }
 
-           
-
             res.render('training/show_training', data)
-        } catch (error) {
-            console.log(error)
-            res.status(500).json({ message: 'Hubo un error'});
+        } catch (error: any) {
+            console.error('Error in showTraining:', error.message);
+            res.status(500).json({
+                message: 'Hubo un error en el servidor. Por favor, inténtalo más tarde.',
+                error: process.env.NODE_ENV === 'development' ? error.message : undefined, // Muestra el error solo en desarrollo.
+            });
         }
     }
 
