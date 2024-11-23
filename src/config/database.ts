@@ -1,4 +1,4 @@
-/* import { Sequelize } from 'sequelize';
+import { Sequelize } from 'sequelize';
 
 // Cargar variables de entorno
 import dotenv from 'dotenv';
@@ -27,10 +27,10 @@ const db = new Sequelize(
 );
 
 export default db;
- */
 
 
-import { Sequelize } from 'sequelize';
+
+/* import { Sequelize } from 'sequelize';
 
 // Cargar variables de entorno
 import dotenv from 'dotenv';
@@ -64,5 +64,5 @@ const db = new Sequelize(
   }
 );
 
-export default db;
+export default db; */
 
