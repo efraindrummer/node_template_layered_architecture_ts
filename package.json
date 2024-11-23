@@ -4,10 +4,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && copyfiles -u 1 src/views/**/* dist/ && copyfiles -u 1 src/public/**/* dist/public",
     "start": "node dist/index.js",
     "dev": "nodemon --watch src --exec \"node --loader ts-node/esm\" src/index.ts",
-    "build:css": "postcss src/styles/tailwind.css -o public/styles/tailwind.css"
+    "build:css": "npx tailwindcss -i ./src/public/css/styles.css -o ./src/public/css/output.css --watch",
+    "dev:all": "concurrently \"npm run build:css\" \"npm run dev\""
   },
   "author": "efraindrummer",
   "license": "ISC",
@@ -17,6 +18,9 @@
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.1",
+    "moment": "^2.30.1",
     "mysql2": "^3.11.4",
     "postcss": "^8.4.49",
     "sequelize": "^6.37.5",
@@ -24,8 +28,12 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
+    "@types/express-ejs-layouts": "^2.5.4",
+    "@types/express-session": "^1.18.0",
     "@types/node": "^22.9.0",
     "@types/sequelize": "^4.28.20",
+    "concurrently": "^9.1.0",
+    "copyfiles": "^2.4.1",
     "nodemon": "^3.1.7",
     "postcss-cli": "^11.0.0",
     "ts-node": "^10.9.2",

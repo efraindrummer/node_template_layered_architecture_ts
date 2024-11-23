@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link href="/css/sidebar.css" rel="stylesheet">
+  <link href="/css/output.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css">
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+
+</head>
+<body class="bg-gray-100 h-screen flex">
+  
+  <div class="h-full px-3 py-4 overflow-y-auto">
+    <!-- Tu contenido aquí -->
+    <%- include('../partials/sidebar') %>
+  </div>
+
+  <!-- Contenido principal -->
+
+  <br>
+  <main class="flex-grow h-screen transition-all m-8 py-4">
+    <h1 class="text-2xl ml-4 font-bold">Bienvenido a la Capacitación</h1>
+    <p class="mt-4 ml-4">Base URL: <%= base_url %></p>
+
+
+    <div class="mt-6 space-y-6">
+      <!-- Primera tabla -->
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <div class="mb-4">
+          <a href="/training/nueva_dnf" class="bg-blue-900 text-white py-2 px-4 rounded hover:bg-blue-700">
+            Nueva DNF
+          </a>
+        </div>
+        <div class="overflow-x-auto">
+          <table id="capacitationTable" class="min-w-full table-auto text-sm">
+            <thead>
+              <tr class="bg-gray-900 text-white">
+                <th class="py-3 px-6 text-left">Nombre de la Capacitación</th>
+                <th class="py-3 px-6 text-left">Instructor</th>
+                <th class="py-3 px-6 text-left">Fecha de Realización</th>
+                <th class="py-3 px-6 text-left">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+                <td>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+                <td>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+                <td>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+                <td>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+                <td>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+                <td>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+                <td>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+                <td>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+                <td>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+                <td>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+                <td>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+                <td>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+                <td>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+                <td>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <h3 class="text-xl font-bold text-center mb-4">Capacitaciones Completadas</h3>
+        <!-- Contenedor con scroll horizontal -->
+        <div class="overflow-x-auto">
+          <table id="capacitationTable2" class="min-w-full table-auto text-sm">
+            <thead>
+              <tr class="bg-slate-900 text-white">
+                <th class="py-3 px-6 text-left min-w-[200px]">Nombre de la Capacitación</th>
+                <th class="py-3 px-6 text-left min-w-[150px]">Instructor</th>
+                <th class="py-3 px-6 text-left min-w-[150px]">Fecha de Realización</th>
+                <th class="py-3 px-6 text-center min-w-[300px]">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-gray-100 border-b hover:bg-gray-200">
+                <td class="py-3 px-6">Capacitación en Desarrollo Web</td>
+                <td class="py-3 px-6">Efrain May</td>
+                <td class="py-3 px-6">10 de diciembre de 2024</td>
+                <td class="text-center">
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-slate-950 text-white font-semibold rounded-full shadow-md hover:bg-slate-950 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-sky-700 text-white font-semibold rounded-full shadow-md hover:bg-sky-700 transition duration-300">
+                    <i class="fa-solid fa-pen"></i>
+                  </a>
+                  <a href="/training/capacitaciones/ver_capacitacion" class="inline-flex items-center px-4 py-2 bg-orange-700 text-white font-semibold rounded-full shadow-md hover:bg-orange-700 transition duration-300">
+                    <i class="fa-solid fa-eye"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      
+    </div>
+
+
+  </main>
+
+  <!-- Elemento oculto para almacenar base_url -->
+  <div id="base_url" base_url="<%= base_url %>"></div>
+
+  <!-- Incluir el script del sidebar-toggle -->
+  <script src="<%= base_url %>js/sidebar-toggle.js" defer></script>
+  <script>
+    $(document).ready(function () {
+      $('#capacitationTable, #capacitationTable2').DataTable({
+        dom: 'Bfrtip', // Activa botones
+        buttons: [
+          {
+            extend: 'excelHtml5',
+            text: 'Exportar a Excel',
+            className: 'export-excel-btn', // Clase personalizada para estilos
+            title: 'Capacitaciones_Completadas', // Nombre del archivo sin extensión
+            filename: 'Capacitaciones_Completadas', // Nombre del archivo exportado
+            exportOptions: {
+              columns: ':not(:last-child)' // Omite la última columna (acciones, en este caso)
+            }
+          }
+        ],
+        language: {
+          sEmptyTable: "No hay datos disponibles en la tabla",
+          sInfo: "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+          sInfoEmpty: "Mostrando 0 a 0 de 0 entradas",
+          sInfoFiltered: "(filtrado de _MAX_ entradas en total)",
+          sLengthMenu: "Mostrar _MENU_ entradas",
+          oPaginate: {
+            sFirst: "Primero",
+            sPrevious: "Anterior",
+            sNext: "Siguiente",
+            sLast: "Último"
+          }
+        },
+        lengthMenu: [5, 10, 15, 20],
+        pageLength: 5,
+        initComplete: function () {
+          // Agregar clases de Tailwind manualmente a los botones
+          $('.export-excel-btn').addClass('bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700');
+          $('.dataTables_filter input').addClass('w-64 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500');
+        }
+      });
+    });
+
+
+    /* $(document).ready(function() {
+      $('#capacitationTable2').DataTable({
+        "language": {
+          "sEmptyTable": "No hay datos disponibles en la tabla",
+          "sInfo": "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+          "sInfoEmpty": "Mostrando 0 a 0 de 0 entradas",
+          "sInfoFiltered": "(filtrado de _MAX_ entradas en total)",
+          "sInfoPostFix": "",
+          "sSearch": "Buscar:",
+          "sUrl": "",
+          "sLengthMenu": "Mostrar _MENU_ entradas",
+          "oPaginate": {
+            "sFirst": "Primero",
+            "sPrevious": "Anterior",
+            "sNext": "Siguiente",
+            "sLast": "Último"
+          }
+        },
+        "lengthMenu": [5, 10, 15, 20],
+        "pageLength": 5
+      });
+    }); */
+  </script>
+
+</body>
+</html>

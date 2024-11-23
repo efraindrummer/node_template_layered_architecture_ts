@@ -14,6 +14,10 @@
     "declaration": true,
     "noEmitOnError": true
   },
-  "include": ["src/**/*.ts", "src/types/**/*.d.ts"],
+  "include": [
+    "src/**/*.ts", 
+    "src/types/**/*.d.ts",
+    "src/types/express-session.d.ts"
+  ],
   "exclude": ["node_modules"]
 }

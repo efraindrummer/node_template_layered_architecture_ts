@@ -1,201 +1,88 @@
-<%
-// @ts-check
-/** @typedef {import('./path/to/types/ejs.d.ts').EJS.Locals} Locals */
-/** @type {Locals} */
-%>
-
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RED - DOMSA</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            clifford: '#da373d',
-          }
-        }
-      }
-    }
-  </script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#000000">
+
   <style>
     body {
-        background: #8E2DE2;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: #141E30; /* fallback */
+      background: -webkit-linear-gradient(to right, #243B55, #141E30); /* for Safari and Chrome */
+      background: linear-gradient(to right, #243B55, #141E30); /* for modern browsers */
     }
   </style>
-  <!-- DataTables CSS -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 </head>
-<body class="flex flex-col min-h-screen bg-gray-100 text-gray-800">
+<body class="flex flex-col min-h-screen text-gray-800">
 
-  <!-- Sección del Contenido Principal (Formulario de Login) -->
-  <main class="flex-grow flex justify-center items-center p-4">
-    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
+  <!-- Contenedor Principal -->
+  <main class="flex-grow flex justify-center items-center p-6">
+    <div class="bg-white p-8 rounded-xl shadow-xl w-full max-w-md">
       <!-- Logo -->
-      <div class="flex justify-center mb-6">
-        <img src="https://shallowanddeepwaterexpo.com/wp-content/uploads/2021/08/PARTICIPANT_Dragados_Offshore_logo.png" alt="Logo" class="w-24 h-24">
+      <div class="flex justify-center mb-8">
+        <img src="https://shallowanddeepwaterexpo.com/wp-content/uploads/2021/08/PARTICIPANT_Dragados_Offshore_logo.png" alt="Logo" class="w-28 h-28">
       </div>
-      
+
       <!-- Título del login -->
-      <h2 class="text-2xl font-semibold text-center text-gray-700 mb-6">Iniciar sesión</h2>
+      <h2 class="text-3xl font-bold text-center text-gray-700 mb-6">Acceso Seguro</h2>
 
       <!-- Formulario -->
       <form action="#" method="POST">
-        <div class="mb-4">
-          <label for="email" class="block text-sm font-medium text-gray-600">Correo electrónico</label>
-          <input type="email" id="email" name="email" required class="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="tu@correo.com">
-        </div>
-        
         <div class="mb-6">
-          <label for="password" class="block text-sm font-medium text-gray-600">Contraseña</label>
-          <input type="password" id="password" name="password" required class="mt-1 p-2 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="******">
+          <label for="email" class="block text-sm font-medium text-gray-600">Correo Electrónico</label>
+          <input type="email" id="email" name="email" required
+            class="mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+            placeholder="nombre@domsa.com">
         </div>
         
-        <button type="submit" class="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">Iniciar sesión</button>
+        <div class="mb-8">
+          <label for="password" class="block text-sm font-medium text-gray-600">Contraseña</label>
+          <input type="password" id="password" name="password" required
+            class="mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" 
+            placeholder="********">
+        </div>
+        
+        <button type="submit"
+          class="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          Iniciar Sesión
+        </button>
       </form>
-      
-      <div class="mt-4 text-center">
-        <a href="#" class="text-sm text-indigo-600 hover:text-indigo-500">¿Olvidaste tu contraseña?</a>
+
+      <!-- Enlace de recuperación -->
+      <div class="mt-6 text-center">
+        <a href="#" class="text-sm text-blue-600 hover:underline">¿Olvidaste tu contraseña?</a>
       </div>
     </div>
   </main>
 
-  <!-- Tabla dentro de una card -->
-  <div class="container mx-auto px-4 py-6">
-    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-      <!-- Card Header -->
-      <div class="px-6 py-4 border-b">
-        <h2 class="text-2xl font-semibold text-gray-700">Usuarios Registrados</h2>
-        <p class="text-gray-600 text-sm">Lista de usuarios con acceso a la plataforma.</p>
-      </div>
-
-      <!-- Tabla -->
-      <div class="overflow-x-auto px-6 py-4">
-        <div class="overflow-hidden shadow-lg rounded-lg border border-gray-300">
-          <table id="example" class="min-w-full table-auto bg-white">
-            <thead class="bg-zinc-400 text-white">
-              <tr>
-                <th class="py-3 px-6 text-left font-semibold text-sm">Nombre</th>
-                <th class="py-3 px-6 text-left font-semibold text-sm">Contraseña</th>
-                <th class="py-3 px-6 text-left font-semibold text-sm">Correo Electrónico</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Aquí se puede renderizar dinámicamente con tu backend -->
-              <% 
-              const { user, fecha, base_url } = locals;
-              
-              user.forEach((item) => { %>
-                <tr class="hover:bg-gray-50 transition-colors duration-200">
-                  <td class="py-3 px-6 border-t border-b text-sm text-gray-700"><%= item.user_names %> <%= item.user_lastname_p %> <%= item.user_lastname_m %></td>
-                  <td class="py-3 px-6 border-t border-b text-sm text-gray-700"><%= item.user_password %></td>
-                  <td class="py-3 px-6 border-t border-b text-sm text-gray-700"><%= item.user_email %></td>
-                </tr>
-              <% }) %>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-
-  <!-- Script de DataTables -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('#example').DataTable({
-        "paging": true,  // Habilitar paginación
-        "searching": true,  // Habilitar búsqueda
-        "info": true,  // Mostrar información (como "Mostrando 1 de 10")
-        "lengthChange": true,  // Permite cambiar la cantidad de registros por página
-        "pageLength": 5,  // Número de registros por página
-        "language": {
-          "processing": "Procesando...",
-          "lengthMenu": "Mostrar _MENU_ registros por página",
-          "zeroRecords": "No se encontraron resultados",
-          "info": "Mostrando página _PAGE_ de _PAGES_",
-          "infoEmpty": "No hay registros disponibles",
-          "infoFiltered": "(filtrado de _MAX_ registros en total)",
-          "search": "Buscar:",
-          "paginate": {
-            "first": "Primera",
-            "previous": "Anterior",
-            "next": "Siguiente",
-            "last": "Última"
-          }
-        },
-        "dom": 'Bfrtip', // Añadir el botón de exportación
-        "buttons": [
-          {
-            extend: 'copy',
-            text: '<span class="bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700">Copiar</span>',
-            className: 'btn btn-secondary'
-          },
-          {
-            extend: 'csv',
-            text: '<span class="bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700">Exportar CSV</span>',
-            className: 'btn btn-success'
-          },
-          {
-            extend: 'excel',
-            text: '<span class="bg-yellow-600 text-white py-2 px-4 rounded-lg hover:bg-yellow-700">Exportar Excel</span>',
-            className: 'btn btn-primary'
-          }
-        ]
-      });
-    });
-  </script>
-
-<div id="alertModal" class="fixed inset-0 z-50 hidden bg-gray-800 bg-opacity-50 flex justify-center items-center">
-  <div class="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full">
-    <h3 class="text-2xl font-semibold text-gray-800">¡Alerta!</h3>
-    <p class="mt-4 text-gray-600">Esta es una alerta personalizada con Tailwind CSS.</p>
-    <div class="flex justify-end mt-6">
-      <button id="closeAlert" class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-        Cerrar
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- Botón para activar la alerta -->
-<button id="showAlert" class="px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500">
-  Mostrar Alerta
-</button>
-
   <!-- Footer -->
   <footer class="bg-gray-800 text-white py-4 mt-8 w-full">
     <div class="text-center">
-      <p class="text-sm">&copy; <%= fecha %> Mi Aplicación. Todos los derechos reservados.</p>
+      <p class="text-sm">&copy; 2024 DOMSA. Todos los derechos reservados.</p>
       <p class="text-sm">
-        <a href="#" class="text-indigo-400 hover:text-indigo-300">Política de privacidad</a> | 
-        <a href="#" class="text-indigo-400 hover:text-indigo-300">Términos de servicio</a>
+        <a href="#" class="text-blue-400 hover:underline">Política de privacidad</a> | 
+        <a href="#" class="text-blue-400 hover:underline">Términos de servicio</a>
       </p>
     </div>
   </footer>
 
-
   <script>
-    // Mostrar alerta
-    document.getElementById("showAlert").addEventListener("click", function() {
-      document.getElementById("alertModal").classList.remove("hidden");
-    });
-  
-    // Cerrar alerta
-    document.getElementById("closeAlert").addEventListener("click", function() {
-      document.getElementById("alertModal").classList.add("hidden");
-    });
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').then(
+          (registration) => {
+            console.log('Service Worker registrado con éxito:', registration);
+          },
+          (err) => {
+            console.error('Error al registrar el Service Worker:', err);
+          }
+        );
+      });
+    }
   </script>
+  
 </body>
 </html>
