@@ -14,8 +14,8 @@
            </a>
         </li>
         <li>
-           <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-            <i class="fa-solid fa-users"></i>
+           <a href="/training/capacitaciones/dashboard" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+            <i class="fa-solid fa-solar-panel"></i>
               <span class="ms-3">Capacitacion</span>
            </a>
         </li>
@@ -58,8 +58,8 @@
       toggleButton.addEventListener('click', () => {
          if (sidebar.classList.contains('-translate-x-full')) {
             // Mostrar el sidebar
-            sidebar.classList.remove('-translate-x-full');
             mainContent.classList.add('ml-64');
+            sidebar.classList.remove('-translate-x-full');
          } else {
             // Ocultar el sidebar
             sidebar.classList.add('-translate-x-full');

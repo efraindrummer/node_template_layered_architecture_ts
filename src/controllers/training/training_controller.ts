@@ -2,6 +2,8 @@ import {} from "dotenv";
 import { Request, Response } from 'express';
 
 import moment from "moment";
+import { trainingService } from "../../services/training/training_service.js";
+import { ICapCurso } from "../../models/cap_curso.interface.js";
 
 export class trainingController {
 
@@ -24,19 +26,33 @@ export class trainingController {
     static showTraining = async(req: Request, res: Response) => {
         console.log('showTraining...')
 
+        /* const { params } = req.body; */
+
         try {
+
+            const cap_curso: ICapCurso[] = await trainingService.getAllCursos()
+            const course_status_cancelado = await trainingService.getAllCourseStatusC()
+
+            const procedure = await trainingService.callStore_SP_VERIFICA_PROYECTO_CONTRATO(/* params.param1 */)
+
+            /* console.log(JSON.stringify(procedure)) */
+
+            /* console.log(JSON.stringify(cap_curso)) */
             
             const data = {
                 base_url: process.env.BASE_URL,
-                title: 'inicio'
+                title: 'inicio',
+                cap_curso,
+                course_status_cancelado
             }
 
-            console.log(JSON.stringify(data))
-
             res.render('training/show_training', data)
-        } catch (error) {
-            console.log(error)
-            res.status(500).json({ message: 'Hubo un error'});
+        } catch (error: any) {
+            console.error('Error in showTraining:', error.message);
+            res.status(500).json({
+                message: 'Hubo un error en el servidor. Por favor, inténtalo más tarde.',
+                error: process.env.NODE_ENV === 'development' ? error.message : undefined, // Muestra el error solo en desarrollo.
+            });
         }
     }
 
@@ -102,6 +118,23 @@ export class trainingController {
             }
 
             res.render('training/plan_capacitacion', data)
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({ message: 'Hubo un error'});
+        }
+    }
+    
+    static dashboard_training = async(req: Request, res: Response) => {
+        console.log('dashboard_training...')
+
+        try {
+
+            const data = {
+                base_url: process.env.BASE_URL,
+                title: 'Capacitacion DNF',
+            }
+
+            res.render('training/dashboard_training', data)
         } catch (error) {
             console.log(error)
             res.status(500).json({ message: 'Hubo un error'});
